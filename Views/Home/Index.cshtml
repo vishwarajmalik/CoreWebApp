@@ -1,0 +1,66 @@
+﻿@model CoreWebApp.Models.UserInfo
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Save UserInfo</h1>
+    <table align="center">
+        <tr>
+            <td>
+                @if (!String.IsNullOrEmpty(ViewBag.SuccessMessage))
+                {
+                    <span style="color:green">@ViewBag.SuccessMessage</span>
+                }
+                @if (!String.IsNullOrEmpty(ViewBag.ErrorMessage))
+                {
+                    <span style="color:red">@ViewBag.ErrorMessage</span>
+                }
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+            
+   
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <table>
+            <thead>
+                <tr>
+                    <td colspan="2" align="center">
+                        User Details
+                    </td>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+                    First Name
+                </td>
+                <td>
+                   @Html.TextBoxFor(a => a.FirstName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Last Name
+                </td>
+                <td>
+                    @Html.TextBoxFor(a => a.LastName)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Save</button>
+                </td>
+
+            </tr>
+        </table>
+
+    }
+            </td>
+        </tr>
+    </table>
+
+</div>
